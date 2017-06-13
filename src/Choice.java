@@ -1,8 +1,6 @@
 
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,14 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Select
+ * Servlet implementation class Choice
  */
-@WebServlet("/Select")
-public class Select extends HttpServlet {
+@WebServlet("/Choice")
+public class Choice extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    
-    public Select() {
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Choice() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -25,28 +25,30 @@ public class Select extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String id= request.getParameter("id");
-		String nextURL;
-		if(!id.equals("New"))
+		String choice= request.getParameter("choice");
+		String id=request.getParameter("id");
+		String cust=request.getParameter("cust");
+		if(choice.equals("2"))
 		{
-			nextURL = "/output2.jsp";
+			String nextURL = "/output3.jsp";
+		
+		
 			
-			Customer cust=new Customer(Integer.parseInt(id));
-			String message=cust.displayCustomer();
+			String message="hi";
 			
+			
+			request.setAttribute("cust", cust);
 			
 			request.setAttribute("id", id);
 			request.setAttribute("message", message);
+			
+			getServletContext().getRequestDispatcher(nextURL).forward(request,response);
 		}
 		else
 		{
-			nextURL = "/add.html";
-			
+			String nextURL = "/search.html";
+			getServletContext().getRequestDispatcher(nextURL).forward(request,response);
 		}
-		
-		getServletContext().getRequestDispatcher(nextURL).forward(request,response);
 	}
-	
-	
 
 }

@@ -22,7 +22,7 @@ public class Customer {
 		db=new Database();
 		String[] vals=db.getCustomer(aCustID);
 		
-		System.out.println(vals[0]);
+		
 		custID=Integer.parseInt(vals[0]);
 		title=vals[1];
 		first=vals[2];

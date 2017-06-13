@@ -134,7 +134,7 @@ public class Database {
 	{
 		Connection con = null;
 		PreparedStatement stmt = null;
-		ResultSet rs = null;
+		
 		String sql = "update address a join customer c using(addID) "
 				+ "set a.StreetAddress = ?,a.City = ?,a.State = ?,a.ZipCode = ? "
 						+ " where c.CustID= ?";
@@ -153,33 +153,7 @@ public class Database {
 			
 				 
 				
-				sql= "Select * from customer join address using(addID) where CustID= ?";
 				
-				stmt = con.prepareStatement(sql);
-				stmt.setInt(1, custID);
-				
-				rs=stmt.executeQuery();
-				
-				
-				ResultSetMetaData col=rs.getMetaData();
-				for(int i=1;i<=col.getColumnCount();i++)
-				{
-					
-					System.out.print(col.getColumnName(i) + "\t");
-				}
-				System.out.println();
-				System.out.println();
-				while(rs.next()){
-					
-					
-					
-					for(int i=1;i<=col.getColumnCount();i++)
-					{
-						
-						System.out.print(rs.getString(i) + "\t");
-					}
-					System.out.println();
-				}
 			 
 		}
 			catch (SQLException e) {
@@ -188,7 +162,7 @@ public class Database {
 				e.printStackTrace();
 		} finally {
 			try {
-				rs.close();
+				
 				stmt.close();
 				con.close();
 			}catch(SQLException e){

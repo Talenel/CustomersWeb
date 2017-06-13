@@ -7,20 +7,24 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>output</h1>
 <div>${message}</div>
+<div>${cust}</div>
 <h4>Enter (1) to search for another customer or (2) to Edit the customer's address</h4>
-<form action="Choice" method="post">
+<form action="Update" method="post">
 
- Choice:<br>
- <input type="text" name="choice">
+ <br>Street Address:
+ <input type="text" name="street">
+ <br>City:
+ <input type="text" name="city">
+ <br>State:
+ <input type="text" name="state">
+ <br>Zip Code:
+ <input type="text" name="zip">
  <input type="hidden" name="id" value="${id}">
- <input type="hidden" name="cust" value="${message}">
  <br>
   <input type="submit">
   <input type="reset" value="Clear"/>
   
 </form>
-
 </body>
 </html>
