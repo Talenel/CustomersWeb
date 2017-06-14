@@ -8,6 +8,9 @@
 </head>
 <body>
 <h1>output</h1>
+
+<p>${error}</p>
+
 <div>${message}</div>
 
 <h4>Please select the Customer ID you would like to display from the above list</h4>
@@ -20,6 +23,10 @@
   <input type="reset" value="Clear"/>
   
 </form>
+<br>
+<br>
+<br>
+<a href="http://localhost:8080/CustomersWeb/search.html" class="btn btn-default">Home</a>
 
 </body>
 </html>

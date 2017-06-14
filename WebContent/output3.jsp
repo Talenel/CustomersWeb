@@ -8,7 +8,7 @@
 </head>
 <body>
 <div>${message}</div>
-<div>${cust}</div>
+
 <h4>Enter (1) to search for another customer or (2) to Edit the customer's address</h4>
 <form action="Update" method="post">
 
@@ -20,11 +20,14 @@
  <input type="text" name="state">
  <br>Zip Code:
  <input type="text" name="zip">
- <input type="hidden" name="id" value="${id}">
  <br>
   <input type="submit">
   <input type="reset" value="Clear"/>
   
 </form>
+<br>
+<br>
+<br>
+<a href="http://localhost:8080/CustomersWeb/search.html" class="btn btn-default">Home</a>
 </body>
 </html>

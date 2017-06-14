@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 @WebServlet("/Search")
@@ -28,12 +29,16 @@ public class Search extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession session = request.getSession();
 		String nextURL = "/output.jsp";
 		String last = request.getParameter("lastname");
 		ArrayList<ArrayList<String>> table=Customer.displayCustomers(last);
 		
 		String message=makeString(table);
+		session.setAttribute("message", message);
+		String error="";
 		
+		request.setAttribute("error", error);
 		request.setAttribute("message", message);
 		
 		getServletContext().getRequestDispatcher(nextURL).forward(request,response);

@@ -14,13 +14,16 @@
 
  Choice:<br>
  <input type="text" name="choice">
- <input type="hidden" name="id" value="${id}">
- <input type="hidden" name="cust" value="${message}">
+ 
  <br>
   <input type="submit">
   <input type="reset" value="Clear"/>
   
 </form>
 
+<br>
+<br>
+<br>
+<a href="http://localhost:8080/CustomersWeb/search.html" class="btn btn-default">Home</a>
 </body>
 </html>

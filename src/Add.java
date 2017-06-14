@@ -24,7 +24,7 @@ public class Add extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String nextURL = "/output5.jsp";
+		String nextURL;
 		String street= request.getParameter("street");
 		String city= request.getParameter("city");
 		String state= request.getParameter("state");
@@ -35,12 +35,24 @@ public class Add extends HttpServlet {
 		String title= request.getParameter("title");
 		String position= request.getParameter("position");
 		String company= request.getParameter("company");
+		try
+		{
 		
-		Customer cust=new Customer(title,first,last,street,city,state,zip,email,position,company);
-		String message=cust.displayCustomer();
-		
-		
-		request.setAttribute("message", message);
+			int Zip=Integer.parseInt(zip);
+			nextURL = "/output5.jsp";
+			Customer cust=new Customer(title,first,last,street,city,state,zip,email,position,company);
+			String message=cust.displayCustomer();
+			
+			
+			request.setAttribute("message", message);
+		}
+		catch(NumberFormatException e)
+		{
+			nextURL ="/add.html";
+			String error="The value for Zip Code is not a valid value. Please try again";
+			request.setAttribute("error", error);
+			
+		}
 		getServletContext().getRequestDispatcher(nextURL).forward(request,response);
 	}
 

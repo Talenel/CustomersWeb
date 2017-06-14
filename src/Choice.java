@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Choice
@@ -26,20 +27,18 @@ public class Choice extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String choice= request.getParameter("choice");
-		String id=request.getParameter("id");
-		String cust=request.getParameter("cust");
+		HttpSession session = request.getSession();
+		Customer cust = (Customer) session.getAttribute("cust");
 		if(choice.equals("2"))
 		{
 			String nextURL = "/output3.jsp";
 		
 		
 			
-			String message="hi";
+			String message=cust.displayCustomer();
 			
 			
-			request.setAttribute("cust", cust);
 			
-			request.setAttribute("id", id);
 			request.setAttribute("message", message);
 			
 			getServletContext().getRequestDispatcher(nextURL).forward(request,response);
