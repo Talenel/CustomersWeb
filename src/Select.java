@@ -56,7 +56,7 @@ public class Select extends HttpServlet {
 		}
 		else
 		{
-			nextURL = "/add.html";
+			nextURL = "/add.jsp";
 			String error="";
 			request.setAttribute("error", error);
 			

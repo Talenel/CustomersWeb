@@ -4,10 +4,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<style>
+p.error{
+	color: red;
+	font-weight: bold;
+
+}
+
+</style>
+
+<title>Update Customer Address</title>
 </head>
 <body>
+<h2>Update Customer Address</h2>
 <div>${message}</div>
+<br>
+<br>
+<p class="error">${error}</p>
 
 <h4>Enter (1) to search for another customer or (2) to Edit the customer's address</h4>
 <form action="Update" method="post">

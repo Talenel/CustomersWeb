@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Display Customer Data</title>
 </head>
 <body>
-<h1>output</h1>
+<h2>Display Customer Data</h2>
 <div>${message}</div>
 <h4>Enter (1) to search for another customer or (2) to Edit the customer's address</h4>
 <form action="Choice" method="post">

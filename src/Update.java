@@ -25,27 +25,39 @@ public class Update extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		HttpSession session = request.getSession();
-		Customer cust =(Customer) session.getAttribute("cust");
-		
-		
-		
-		String nextURL = "/output4.jsp";
+		String nextURL;
+		String message;
+		String error;
 		String street= request.getParameter("street");
 		String city= request.getParameter("city");
 		String state= request.getParameter("state");
 		String zip= request.getParameter("zip");
 		
-		cust.setCity(city);
-		cust.setState(state);
-		cust.setStreet(street);
-		cust.setZip(zip);
-		cust.editAddress();
-		
-		String message=cust.displayCustomer();
-		
-		
+		HttpSession session = request.getSession();
+		Customer cust =(Customer) session.getAttribute("cust");	
+		try{
+			
+			int Zip=Integer.parseInt(zip);
+			
+					
+			nextURL = "/output4.jsp";
+			
+			cust.setCity(city);
+			cust.setState(state);
+			cust.setStreet(street);
+			cust.setZip(zip);
+			cust.editAddress();
+			
+			message=cust.displayCustomer();
+		}
+		catch(NumberFormatException e)
+		{
+			
+			nextURL="/output3.jsp";
+			error="The zip code is an invalid value";
+			message=cust.displayCustomer();
+			request.setAttribute("error", error);
+		}
 		
 		request.setAttribute("message", message);
 		getServletContext().getRequestDispatcher(nextURL).forward(request,response);

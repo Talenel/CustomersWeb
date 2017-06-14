@@ -48,7 +48,7 @@ public class Add extends HttpServlet {
 		}
 		catch(NumberFormatException e)
 		{
-			nextURL ="/add.html";
+			nextURL ="/add.jsp";
 			String error="The value for Zip Code is not a valid value. Please try again";
 			request.setAttribute("error", error);
 			

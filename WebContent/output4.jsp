@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Final Customer Data after Update</title>
 </head>
 <body>
-
+<h2>Final Customer Data after Update</h2>
 <div>${message}</div>
 <a href="http://localhost:8080/CustomersWeb/search.html" class="btn btn-default">Home</a>
 </body>
